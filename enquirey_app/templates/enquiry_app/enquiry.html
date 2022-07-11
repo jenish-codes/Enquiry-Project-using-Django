@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backgground color split</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        body {
+            background: black;
+            font-family: sans-serif;
+        }
+
+        .form {
+            background: linear-gradient(
+                to right,
+                yellow 0%,
+                yellow 50%,
+                red 50%,
+                red 100%
+            );
+            margin: 7% auto;
+            max-width: 400px;
+            padding: 20px;
+            min-height: 60vh;
+            overflow: hidden;
+        }
+
+        .form .header {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .form .form-group {
+            padding: 5px;
+        }
+
+        .form .form-group label{
+            display: block;
+        }
+
+        .form .form-group input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            /* border: none; */
+            border: 1px solid rgba(0, 0, 0, 0.158);
+        }
+
+        .form .form-group textarea {
+            resize: none;
+        }
+
+        .form .button {
+            text-align: center;
+            padding: 10px;
+        }
+
+        .form .button input {
+            padding: 10px;
+            background: green;
+            color: white;
+            font-size: 12pt;
+            font-weight: bolder;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form .button input:hover {
+            background-color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <div class="header">
+                <h2>Enquirey Form</h2>
+            </div>
+            <form action="{% url 'enquirey' %}" method="post">
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="eail" name="email">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone No:</label>
+                    <input type="text" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea name="message"></textarea>
+                </div>
+
+                <div class="button">
+                    <input type="submit" value="Submit">
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
