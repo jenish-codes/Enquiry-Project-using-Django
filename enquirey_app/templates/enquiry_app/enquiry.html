@@ -14,8 +14,16 @@
         }
 
         body {
-            background: black;
+            background: linear-gradient(
+                to right,
+                red 0%,
+                red 50%,
+                yellow 50%,
+                yellow 100%
+            );
             font-family: sans-serif;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .form {
@@ -37,6 +45,21 @@
             padding: 10px;
             text-align: center;
         }
+
+        /* .form .header h2  {
+            color: transparent;
+            text-transform: uppercase;
+            background: linear-gradient(
+                to right,
+                black 0%,
+                black 50%,
+                white 50%,
+                white 100%
+            );
+            background-clip: text;
+            -moz-background-clip: text;
+            --webkit-background-clip: text;
+        } */
 
         .form .form-group {
             padding: 5px;
@@ -88,9 +111,10 @@
                 <h2>Enquirey Form</h2>
             </div>
             <form action="{% url 'enquiryForm' %}" method="post">
+                {% csrf_token %}
                 <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" name="name">
+                    <input type="text" name="name" autofocus>
                 </div>
 
                 <div class="form-group">
