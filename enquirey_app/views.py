@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+
+
+def enquiryForm(request):
+    return render(request, 'enquiry_app/enquiry.html')
