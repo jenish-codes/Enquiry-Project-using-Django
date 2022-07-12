@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry List</title>
+    <style>
+        *{
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(
+                to right,
+                yellow 0%,
+                yellow 50%,
+                red 50%,
+                red 100%
+            );
+        }
+
+        .table {
+            background: black;
+            padding: 3px;
+            margin: 5% auto;
+            width: 70vw;
+            border-radius: 10px;
+        }
+        
+        table {
+            background: rgb(32, 203, 255);
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        table, tr, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .action {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-weight: bolder;
+            margin: 4px;
+        }
+
+        .edit {
+            background: rgb(17, 88, 194);
+            opacity: .8;
+            padding: 5px;
+            border-radius: 4px;
+        }
+
+        .edit:hover {
+            opacity: 1;
+        }
+
+        .delete {
+            background: red;
+            opacity: .8;
+            border-radius: 4px;
+            padding: 5px;
+        }
+
+        .delete:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in enquiries %}
+                    <tr>
+                        <td> {{ forloop.counter }}</td>
+                        <td> {{ e.name }}</td>
+                        <td>{{ e.email }}</td>
+                        <td>{{ e.phone }}</td>
+                        <td>{{ e.message }}</td>
+                        <td>
+                            <a href="/update/{{ e.id }}" class="action edit">Edit</a>
+                            <a href="{% url 'delete' e.id %}" class="action delete">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No enquiries found!</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

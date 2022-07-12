@@ -5,3 +5,6 @@ class Enquiry(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=30)
     message = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.name
