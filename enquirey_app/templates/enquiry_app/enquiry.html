@@ -114,22 +114,22 @@
                 {% csrf_token %}
                 <div class="form-group">
                     <label>Name:</label>
-                    <input type="text" name="name" autofocus>
+                    <input type="text" name="name" autofocus required>
                 </div>
 
                 <div class="form-group">
                     <label>Email:</label>
-                    <input type="eail" name="email">
+                    <input type="email" name="email">
                 </div>
 
                 <div class="form-group">
                     <label>Phone No:</label>
-                    <input type="text" name="phone">
+                    <input type="text" name="phone" required>
                 </div>
 
                 <div class="form-group">
                     <label>Message:</label>
-                    <textarea name="message"></textarea>
+                    <textarea name="message" required></textarea>
                 </div>
 
                 <div class="button">
